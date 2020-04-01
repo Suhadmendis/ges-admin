@@ -289,6 +289,9 @@ desired effect
           <ul class="treeview-menu">
             <li><a href="?url=registration">Registration</a></li>
             <li><a href="?url=pay">Payment</a></li>
+            <li><a href="?url=batch">Batch</a></li>
+            <li><a href="?url=course">Course</a></li>
+            <li><a href="?url=content">Content</a></li>
             
           </ul>
         </li>

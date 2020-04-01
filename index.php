@@ -34,6 +34,19 @@ if (isset($_GET['url'])) {
     include 'm_session_allo.php';
   }
 
+  if ($_GET['url'] == "batch"){
+    include 'm_batch.php';
+  }
+
+  if ($_GET['url'] == "course"){
+    include 'm_course.php';
+  }
+
+  if ($_GET['url'] == "content"){
+    include 'm_content.php';
+  }
+  
+
 }else{
 	// include 'dashboard.php'; 
 }
