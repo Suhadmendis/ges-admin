@@ -101,6 +101,7 @@ function save_info()
     url = url + "?Command=" + "save_item";
     url = url + "&REF=" + document.getElementById("REF").value;
     url = url + "&player_ref=" + document.getElementById("player_ref").value;
+    url = url + "&player_name=" + document.getElementById("player_name").value;
     url = url + "&mdate=" + document.getElementById("mdate").value;
     url = url + "&amount=" + document.getElementById("amount").value;
     
@@ -165,6 +166,7 @@ function getFromValues()
             opener.document.getElementById('player_ref').value = objSup.player_ref;
             opener.document.getElementById('mdate').value = objSup.mdate;
             opener.document.getElementById('amount').value = objSup.amount;
+            opener.document.getElementById('player_name').value = objSup.player_name;
         }
 
       

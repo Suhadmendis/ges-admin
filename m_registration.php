@@ -21,85 +21,155 @@
             </div>
             <!-- form start -->
             <form role="form">
-              <div class="box-body col-md-4">
+              <div class="box-body col-md-12">
 
 
-               <div class="form-group" >
-                  <label for="exampleInputEmail1" >Reference No</label>
-                  <input type="text" class="form-control" id="REF" v-model="REF" placeholder="Reference No">
-                </div>
-
-
+  
+                <div class="form-group"></div>
                 <div class="form-group">
+                  <div class="col-sm-2">
+                    <label for="exampleInputEmail1" >Reference No</label>
+                    </div>
+                    <div class="col-sm-2">
+                    <input type="text" class="form-control" id="REF" v-model="REF" placeholder="Reference No">
+                    </div>
+                  </div><br><br>
+
+                <div class="form-group"></div>
+                <div class="form-group">
+                  <div class="col-sm-2">
                     <label for="first_name" >First name</label>
+                    </div>
+                    <div class="col-sm-2">
                     <input type="text" class="form-control" id="first_name" placeholder="First name">
-                  </div>
+                    </div>
+                  </div><br><br>
                   
+                  <div class="form-group"></div>
                   <div class="form-group">
+                    <div class="col-sm-2">
                     <label for="last_name" >Last Name</label>
+                    </div>
+                    <div class="col-sm-2">
                     <input type="text" class="form-control" id="last_name" placeholder="Last Name">
-                  </div>
+                    </div>
+                  </div><br><br>
                   
+                  <div class="form-group"></div>
                   <div class="form-group">
+                    <div class="col-sm-2">
                     <label for="guardian_name" >Guardian Name</label>
+                    </div>
+                    <div class="col-sm-2">
                     <input type="text" class="form-control" id="guardian_name" placeholder="Guardian Name">
-                  </div>
+                    </div>
+                  </div><br><br>
                   
+                  <div class="form-group"></div>
                   <div class="form-group">
+                    <div class="col-sm-2">
                     <label for="guardian_tel" >Guardian Tel</label>
+                    </div>
+                    <div class="col-sm-2">
                     <input type="text" class="form-control" id="guardian_tel" placeholder="Guardian Tel">
-                  </div>
+                    </div>
+                  </div><br><br>
                   
+                  <div class="form-group"></div>
                   <div class="form-group">
+                    <div class="col-sm-2">
                     <label for="address_1" >Address 1</label>
+                    </div>
+                    <div class="col-sm-2">
                     <input type="text" class="form-control" id="address_1" placeholder="Address 1">
-                  </div>
+                    </div>
+                  </div><br><br>
                   
+                  <div class="form-group"></div>
                   <div class="form-group">
+                    <div class="col-sm-2">
                     <label for="address_2" >Address 2</label>
+                    </div>
+                    <div class="col-sm-2">
                     <input type="text" class="form-control" id="address_2" placeholder="Address 2">
-                  </div>
+                    </div>
+                  </div><br><br>
                   
+                  <div class="form-group"></div>
                   <div class="form-group">
+                    <div class="col-sm-2">
                     <label for="tel_1" >Tel 1</label>
+                    </div>
+                    <div class="col-sm-2">
                     <input type="text" class="form-control" id="tel_1" placeholder="Tel 1">
-                  </div>
+                    </div>
+                  </div><br><br>
                   
+                  <div class="form-group"></div>
                   <div class="form-group">
+                    <div class="col-sm-2">
                     <label for="tel_2" >Tel 2</label>
+                    </div>
+                    <div class="col-sm-2">
                     <input type="text" class="form-control" id="tel_2" placeholder="Tel 2">
-                  </div>
+                    </div>
+                  </div><br><br>
                   
+                  <div class="form-group"></div>
                   <div class="form-group">
+                    <div class="col-sm-2">
                     <label for="sex" >Sex</label>
+                    </div>
+                    <div class="col-sm-2">
                     <input type="text" class="form-control" id="sex" placeholder="sex">
-                  </div>
+                    </div>
+                  </div><br><br>
                   
+                  <div class="form-group"></div>
                   <div class="form-group">
+                    <div class="col-sm-2">
                     <label for="dob" >DOB</label>
+                    </div>
+                    <div class="col-sm-2">
                     <div class="input-group date">
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
                   <input type="text" class="form-control datepicker" id="dob" placeholder="DOB">
                 </div>
+                    </div>
                     
-                  </div>
+                  </div><br><br>
                   
+                  <div class="form-group"></div>
                   <div class="form-group">
+                    <div class="col-sm-2">
                     <label for="email" >Email</label>
+                    </div>
+                    <div class="col-sm-2">
                     <input type="text" class="form-control" id="email" placeholder="Email">
-                  </div>
+                    </div>
+                  </div><br><br>
                   
+                  <div class="form-group"></div>
                   <div class="form-group">
+                    <div class="col-sm-2">
                     <label for="remark" >Remark</label>
+                    </div>
+                    <div class="col-sm-2">
                     <input type="text" class="form-control" id="remark" placeholder="Remark">
-                  </div>
+                    </div>
+                  </div><br><br>
                   
+                  <div class="form-group"></div>
                   <div class="form-group">
+                    <div class="col-sm-2">
                     <label for="joineddate" >Joined Date</label>
+                    </div>
+                    <div class="col-sm-2">
                     <input type="text" class="form-control datepicker" value="<?php echo date("Y/m/d");?>" id="joineddate" placeholder="Joined Date">
-                  </div>
+                    </div>
+                  </div><br><br>
                 
                   <div class="checkbox">
                   <label>

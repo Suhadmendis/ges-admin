@@ -41,7 +41,6 @@ if ($_GET["Command"] == "save_item") {
         $resul = $conn->query($sql);
         $row = $resul->fetch();
         $tmpinvno = "000000" . $row["registration_ref"];
-        $no1 = $row["registration_ref"];
         $lenth = strlen($tmpinvno);
         $no = trim("REG/") . substr($tmpinvno, $lenth - 7);
 
@@ -50,8 +49,8 @@ if ($_GET["Command"] == "save_item") {
         $result = $conn->query($sql);
         
         
-        $no2 = $no1 + 1;
-        $sql = "update sys_info set registration_ref = '$no2' where registration_ref = '$no1'";
+        $no2 = $no + 1;
+        $sql = "update sys_info set registration_ref = $no2 where registration_ref = $no";
         $result = $conn->query($sql);
 
         $conn->commit();
@@ -71,14 +70,23 @@ if ($_GET["Command"] == "getForm") {
 
     $REF = $_GET["REF"];
 
-    $sql = "select * from m_registration where REF= '" . $REF . "'";
+    $sql = "select * from m_registration where REF = '" . $REF . "'";
 
     $sql = $conn->query($sql);
     if ($row = $sql->fetch()) {
         $ResponseXML .= "<objSup><![CDATA[" . json_encode($row) . "]]></objSup>";
     }
 
-   $ResponseXML .= "<IDF><![CDATA[" . $_GET['IDF'] . "]]></IDF>";
+     $sql = "select * from m_allo where REF_REG = '" . $REF . "'";
+
+   
+        $result = $conn->query($sql);
+        $row = $result->fetchAll();
+    
+    $ResponseXML .= "<objallo><![CDATA[" . json_encode($row) . "]]></objallo>";
+    
+
+    $ResponseXML .= "<IDF><![CDATA[" . $_GET['IDF'] . "]]></IDF>";
 
     $ResponseXML .= "</salesdetails>";
     echo $ResponseXML;
@@ -121,18 +129,33 @@ if ($_GET["Command"] == "CL_save_reg") {
                         ('" . $genno . "' ,'" . $_GET['first_name'] . "' ,'" . $_GET['last_name'] . "' ,'" . $_GET['guardian_name'] . "' ,'" . $_GET['guardian_tel'] . "' ,'" . $_GET['address_1'] . "' ,'" . $_GET['address_2'] . "' ,'" . $_GET['tel_1'] . "' ,'" . $_GET['tel_2'] . "' ,'" . $_GET['sex'] . "' ,'" . $_GET['dob'] . "' ,'" . $_GET['email'] . "' ,'" . $_GET['remark'] . "' ,'" . $_GET['joineddate'] . "' ,'" . $_GET['active'] . "','" . $_GET['black_list'] . "','WEB')";
         $result = $conn->query($sql);
 
+        $no2 = $no + 1;
+        $sql = "update sys_info set registration_ref = $no2 where registration_ref = $no";
+        $result = $conn->query($sql);
+
+        
+
+        $sql = "SELECT session_allo_ref FROM sys_info";
+        $resul = $conn->query($sql);
+        $row = $resul->fetch();
+        $no1 = $row['session_allo_ref'];
+        $tmpinvno = "000000" . $row["session_allo_ref"];
+        $lenth = strlen($tmpinvno);
+        $no = trim("SA/") . substr($tmpinvno, $lenth - 7);
+
+
         $allo_tm = array(json_decode($_GET['allo']));
         $allo = $allo_tm[0];
         for ($i=0; $i < sizeof($allo); $i++) { 
-            $sql = "Insert into m_allo(REF_REG ,REF_SESS)values
-                        ('" . $genno . "' ,'" . $allo[$i] . "')";
+            $sql = "Insert into m_allo(REF, REF_REG ,REF_SESS)values
+                        ('" . $no . "' ,'" . $genno . "' ,'" . $allo[$i] . "')";
             $result = $conn->query($sql);
         }
         
-        $no2 = $no + 1;
-        $sql = "update sys_info set registration_ref = $no2 where registration_ref = $no";
-        
+        $no2 = $no1 + 1;
+        $sql = "update sys_info set session_allo_ref = $no2";
         $result = $conn->query($sql);
+
 
         $conn->commit();
         echo "Saved";

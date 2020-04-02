@@ -179,7 +179,7 @@ function getFromValues()
     if (xmlHttp.readyState == 4 || xmlHttp.readyState == "complete")
     {
 
-        console.log(xmlHttp.responseXML);
+        // console.log(xmlHttp.responseXML);
         XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("IDF");
         var IDF = XMLAddress1[0].childNodes[0].nodeValue;
 
@@ -214,6 +214,39 @@ function getFromValues()
             }
            
           
+        }
+
+        
+        if (IDF === "sess_allo") {
+
+            XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("objallo");
+            var objallo = JSON.parse(XMLAddress1[0].childNodes[0].nodeValue);
+            console.log(objallo);
+
+            opener.document.getElementById('player_ref').value = objSup.REF;
+            opener.document.getElementById('player_Name').value = objSup.first_name;
+            
+            var table = window.opener.document.getElementById("example");
+           
+
+            for (var i = 1; i < table.rows.length-1; i++) {
+                table.rows[i].setAttribute("class", "");
+            }
+            for (var i = 1; i < table.rows.length-1; i++) {
+                for (var j = 0; j < objallo.length; j++) {
+                    if (table.rows[i].cells[0].innerHTML == objallo[j].REF_SESS) {
+                        table.rows[i].setAttribute("class", "selected");
+                    }
+                }
+            }
+
+
+            
+        }
+
+        if (IDF === "payment") {
+            opener.document.getElementById('player_ref').value = objSup.REF;
+            opener.document.getElementById('player_name').value = objSup.first_name;
         }
 
       

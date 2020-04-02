@@ -11,9 +11,6 @@ date_default_timezone_set('Asia/Colombo');
 if ($_GET["Command"] == "generate") {
    header('Content-Type: application/json');
 
-    $ResponseXML = "";
-    $ResponseXML .= "<new>";
-
     $sql = "SELECT batch_ref FROM sys_info";
     $result = $conn->query($sql);
     $row = $result->fetch();
@@ -23,7 +20,7 @@ if ($_GET["Command"] == "generate") {
     $no = trim("BAT/") . substr($tmpinvno, $lenth - 7);
 
     
-    $en_name = 'batch';
+    $en_name = 'Batch';
 
     $objArray = Array();
     array_push($objArray,$no,$en_name);

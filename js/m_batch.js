@@ -98,10 +98,17 @@ function save_info()
     }
 
     var url = "m_batch_data.php";
-    url = url + "?Command=" + "save_item";
     url = url + "&REF=" + document.getElementById("REF").value;
-    url = url + "&player_ref=" + document.getElementById("player_ref").value;
-    url = url + "&mdate=" + document.getElementById("mdate").value;
+    url = url + "&batch_code=" + document.getElementById("batch_code").value;
+    url = url + "&batch_name=" + document.getElementById("batch_name").value;
+    url = url + "&course_ref=" + document.getElementById("course_ref").value;
+    url = url + "&course_code=" + document.getElementById("course_code").value;
+    url = url + "&course_name=" + document.getElementById("course_name").value;
+    url = url + "&des=" + document.getElementById("des").value;
+    url = url + "&start_date=" + document.getElementById("start_date").value;
+    url = url + "&day=" + document.getElementById("day").value;
+    url = url + "&s_time=" + document.getElementById("s_time").value;
+    url = url + "&e_time=" + document.getElementById("e_time").value;
     url = url + "&amount=" + document.getElementById("amount").value;
     
     xmlHttp.onreadystatechange = salessaveresult;

@@ -24,30 +24,50 @@
                 
             <!-- form start -->
             <form role="form">
-              <div class="box-body col-md-4">
+              <div class="box-body col-md-12">
 
 
+                <div class="form-group"></div>
                <div class="form-group" >
+                  <div class="col-sm-2">
                   <label for="exampleInputEmail1" >Reference No</label>
+                  </div>
+                  <div class="col-sm-2">
                   <input type="text" class="form-control" id="REF" v-model="REF" placeholder="Reference No">
-                </div>
+                  </div>
+                </div><br><br>
 
 
+                  <div class="form-group"></div>
                 <div class="form-group">
+                    <div class="col-sm-2">
                     <label for="first_name" >Player</label>
+                    </div>
+                    <div class="col-sm-2">
                     <input type="text" class="form-control" id="player_ref" placeholder="Player">
-                  </div>
+                    </div>
+                  </div><br><br>
 
 
+                  <div class="form-group"></div>
                    <div class="form-group">
+                    <div class="col-sm-2">
                     <label for="date" >Date</label>
+                     </div>
+                     <div class="col-sm-2">
                     <input type="text" class="form-control datepicker" value="<?php echo date("Y/m/d");?>" id="mdate" placeholder="Date">
-                  </div>
+                    </div>
+                  </div><br><br>
                   
+                  <div class="form-group"></div>
                   <div class="form-group">
+                    <div class="col-sm-2">
                     <label for="amount" >Amount</label>
+                     </div>
+                     <div class="col-sm-2">
                     <input type="number" class="form-control" id="amount" placeholder="Amount">
-                  </div>
+                    </div>
+                  </div><br><br>
                   
                   
                 

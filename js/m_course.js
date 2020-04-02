@@ -100,8 +100,21 @@ function save_info()
     var url = "m_course_data.php";
     url = url + "?Command=" + "save_item";
     url = url + "&REF=" + document.getElementById("REF").value;
-    url = url + "&player_ref=" + document.getElementById("player_ref").value;
-    url = url + "&mdate=" + document.getElementById("mdate").value;
+    url = url + "&course_code=" + document.getElementById("course_code").value;
+    url = url + "&course_name=" + document.getElementById("course_name").value;
+    url = url + "&faculty_ref=" + document.getElementById("faculty_ref").value;
+    url = url + "&faculty_name=" + document.getElementById("faculty_name").value;
+    url = url + "&batch_ref=" + document.getElementById("batch_ref").value;
+    url = url + "&batch_code=" + document.getElementById("batch_code").value;
+    url = url + "&des=" + document.getElementById("des").value;
+    url = url + "&level=" + document.getElementById("level").value;
+    url = url + "&type=" + document.getElementById("type").value;
+    url = url + "&requirement_1=" + document.getElementById("requirement_1").value;
+    url = url + "&requirement_2=" + document.getElementById("requirement_2").value;
+    url = url + "&requirement_3=" + document.getElementById("requirement_3").value;
+    url = url + "&requirement_4=" + document.getElementById("requirement_4").value;
+    url = url + "&requirement_5=" + document.getElementById("requirement_5").value;
+    url = url + "&duration=" + document.getElementById("duration").value;
     url = url + "&amount=" + document.getElementById("amount").value;
     
     xmlHttp.onreadystatechange = salessaveresult;

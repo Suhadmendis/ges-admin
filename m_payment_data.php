@@ -50,13 +50,13 @@ if ($_GET["Command"] == "save_item") {
         $lenth = strlen($tmpinvno);
         $no1 = trim("PAY/") . substr($tmpinvno, $lenth - 7);
 
-        $sql = "Insert into m_payment(REF, player_ref, mdate, amount)values
-                        ('" . $no1 . "' ,'" . $_GET['player_ref'] . "' ,'" . $_GET['mdate'] . "' ,'" . $_GET['amount'] . "')";
+        $sql = "Insert into m_payment(REF, player_ref, player_name, mdate, amount)values
+                        ('" . $no1 . "' ,'" . $_GET['player_ref'] . "' ,'" . $_GET['player_name'] . "' ,'" . $_GET['mdate'] . "' ,'" . $_GET['amount'] . "')";
         $result = $conn->query($sql);
         
         
         $no2 = $no + 1;
-        $sql = "update sys_info set payment_ref = '$no2' where payment_ref = '$no'";
+        $sql = "update sys_info set payment_ref = $no2 where payment_ref = $no";
         $result = $conn->query($sql);
 
         $conn->commit();
