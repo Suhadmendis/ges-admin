@@ -22,15 +22,13 @@ if ($_GET["Command"] == "generate") {
     $lenth = strlen($tmpinvno);
     $no = trim("BAT/") . substr($tmpinvno, $lenth - 7);
 
-
-    $en_name = "Batch";
+    
+    $en_name = 'batch';
 
     $objArray = Array();
     array_push($objArray,$no,$en_name);
 
-    echo json_encode($objArray);
-
-   
+    echo json_encode($objArray); 
 }
 
 

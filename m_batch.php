@@ -13,7 +13,7 @@
             <!-- /.box-header -->
             <div class="btn-group" style="padding: 10px;">
               <a class="btn btn-success" onclick="save_info();">Save</a>
-              <a class="btn btn-primary" onclick="window.open('search_m_payment.php?IDF=Master', 'mywin', 'width=800, height=700');" class="btn btn-info btn-sm">Search</a>
+              <a class="btn btn-primary" onclick="window.open('search_m_batch.php?IDF=Master', 'mywin', 'width=800, height=700');" class="btn btn-info btn-sm">Search</a>
               <a class="btn btn-danger" onclick="">Cancel</a>
               
               

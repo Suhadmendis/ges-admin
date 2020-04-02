@@ -18,20 +18,12 @@ if (isset($_COOKIE[$cookie_name])) {
 include 'head_res.php'; 
 if (isset($_GET['url'])) {
 
-  if ($_GET['url'] == "session"){
-    include 'm_session.php';
-  }
-
   if ($_GET['url'] == "registration"){
     include 'm_registration.php';
   }
 
   if ($_GET['url'] == "pay"){
     include 'm_payment.php';
-  }
-
-  if ($_GET['url'] == "sess_allo"){
-    include 'm_session_allo.php';
   }
 
   if ($_GET['url'] == "batch"){
@@ -47,8 +39,23 @@ if (isset($_GET['url'])) {
   }
   
 
+
+
+
+
+
+
+
+
+
+
+
+  if ($_GET['url'] == ""){
+    include 'dashboard.php';
+  }
+
 }else{
-	// include 'dashboard.php'; 
+	include 'dashboard.php'; 
 }
 
 include 'foot_res.php'; ?>

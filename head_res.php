@@ -280,6 +280,19 @@ desired effect
         <!-- Optionally, you can add icons to the links -->
         <!-- <li class="active"><a href="?url=session"><i class="fa fa-link"></i> <span>Session</span></a></li>
         <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li> -->
+        
+        
+        <?php
+
+            include ("DB_connector.php");
+
+            $sql = "SELECT * FROM sys_entry";
+            $result = $conn->query($sql);
+            $row = $result->fetchAll();
+
+        ?>
+
+
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Main</span>
             <span class="pull-right-container">
@@ -287,14 +300,15 @@ desired effect
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="?url=registration">Registration</a></li>
-            <li><a href="?url=pay">Payment</a></li>
-            <li><a href="?url=batch">Batch</a></li>
-            <li><a href="?url=course">Course</a></li>
-            <li><a href="?url=content">Content</a></li>
+
+
+            <?php for ($i=0; $i < sizeof($row); $i++) {  ?>
+              <li><a href="?url=<?php echo $row[$i]['url'] ?>"><?php echo $row[$i]['entry'] ?></a></li>
+            <?php } ?>
             
           </ul>
         </li>
+
       </ul>
       
     </section>
