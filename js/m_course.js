@@ -116,6 +116,12 @@ function save_info()
     url = url + "&requirement_5=" + document.getElementById("requirement_5").value;
     url = url + "&duration=" + document.getElementById("duration").value;
     url = url + "&amount=" + document.getElementById("amount").value;
+
+    if (document.getElementById("active").checked) {
+        url = url + "&active=" + "1";
+    }else{
+        url = url + "&active=" + "0";
+    }
     
     xmlHttp.onreadystatechange = salessaveresult;
     xmlHttp.open("GET", url, true);

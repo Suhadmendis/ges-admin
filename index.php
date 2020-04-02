@@ -37,6 +37,10 @@ if (isset($_GET['url'])) {
   if ($_GET['url'] == "content"){
     include 'm_content.php';
   }
+
+  if ($_GET['url'] == "faculty"){
+    include 'm_faculty.php';
+  }
   
 
 

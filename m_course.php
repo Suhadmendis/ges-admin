@@ -26,17 +26,23 @@
             <form role="form">
               <div class="box-body col-md-12">
 
-                  <div class="form-group"></div>
-               <div class="form-group" >
+                   <div class="form-group"></div>
+                <div class="form-group">
                   <div class="col-sm-2">
                     <label for="exampleInputEmail1" >Reference No</label>
-                  </div>
-
-                  <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-2">
                     <input type="text" class="form-control" id="REF" v-model="REF" placeholder="Reference No">
-                  </div>
-
-                </div><br><br>
+                    </div>
+                    <div class="col-sm-2">                    
+                    <div class="checkbox">
+                    <label>
+                      <input id="active" checked="" type="checkbox"> Active
+                    </label>
+                    </div>
+                    </div>
+                    
+                  </div><br><br>
 
 
                           

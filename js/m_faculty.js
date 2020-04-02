@@ -6,7 +6,7 @@ var vue = new Vue({
   },
     mounted () {
         axios
-          .get('m_content_data.php?Command=generate')
+          .get('m_faculty_data.php?Command=generate')
           .then(response => {
             this.en_name = response.data[1]
             this.REF = response.data[0]
@@ -55,7 +55,7 @@ function getdt() {
         return;
     }
 
-    var url = "m_content_data.php";
+    var url = "m_faculty_data.php";
     url = url + "?Command=" + "getdt";
     url = url + "&ls=" + "new";
 
@@ -97,7 +97,7 @@ function save_info()
         return false;
     }
 
-    var url = "m_content_data.php";
+    var url = "m_faculty_data.php";
     url = url + "?Command=" + "save_item";
     url = url + "&REF=" + document.getElementById("REF").value;
     url = url + "&content_code=" + document.getElementById("content_code").value;
@@ -108,8 +108,6 @@ function save_info()
     }else{
         url = url + "&active=" + "0";
     }
-
-    
     
     
     xmlHttp.onreadystatechange = salessaveresult;
@@ -144,7 +142,7 @@ function getForm(REF, IDF)
         alert("Browser does not support HTTP Request");
         return;
     }
-    var url = "m_content_data.php";
+    var url = "m_faculty_data.php";
     url = url + "?Command=" + "getForm";
     url = url + "&REF=" + REF;
     url = url + "&IDF=" + IDF;

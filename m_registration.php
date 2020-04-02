@@ -33,6 +33,20 @@
                     <div class="col-sm-2">
                     <input type="text" class="form-control" id="REF" v-model="REF" placeholder="Reference No">
                     </div>
+                    <div class="col-sm-2">                    
+                    <div class="checkbox">
+                    <label>
+                      <input id="active" checked="" type="checkbox"> Active
+                    </label>
+                    </div>
+                    </div>
+                    <div class="col-sm-2">                    
+                    <div class="checkbox">
+                    <label>
+                      <input id="black_list" type="checkbox"> Black List
+                    </label>
+                    </div>
+                    </div>
                   </div><br><br>
 
                 <div class="form-group"></div>
@@ -171,17 +185,7 @@
                     </div>
                   </div><br><br>
                 
-                  <div class="checkbox">
-                  <label>
-                    <input id="active" checked="" type="checkbox"> Active
-                  </label>
-                  </div>
-
-                  <div class="checkbox">
-                  <label>
-                    <input id="black_list" type="checkbox"> Black List
-                  </label>
-                  </div>
+                  
 
              
               </div>

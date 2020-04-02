@@ -27,7 +27,7 @@
               <div class="box-body col-md-12">
 
 
-                  <div class="form-group"></div>
+                 <div class="form-group"></div>
                 <div class="form-group">
                   <div class="col-sm-2">
                     <label for="exampleInputEmail1" >Reference No</label>
@@ -87,7 +87,7 @@
       </div>
 
 </section>
-<script src="js/m_content.js"></script>
+<script src="js/m_faculty.js"></script>
 <!-- <script>getdt();</script> -->
 
 
