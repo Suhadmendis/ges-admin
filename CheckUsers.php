@@ -19,9 +19,6 @@ if ($Command == "CheckUsers") {
     $Password = $_GET["Password"];
 //    $ResponseXML .= "<action><![CDATA[" . $_GET['action'] . "]]></action>";
 //    $ResponseXML .= "<form><![CDATA[" . $_GET['form'] . "]]></form>";
-   
-
-
     $sql = "SELECT * FROM user_mast WHERE user_name =  '" . $UserName . "' and password =  '" . $Password . "' ";
     $result = $conn->query($sql);
 
@@ -31,13 +28,11 @@ if ($Command == "CheckUsers") {
         $sessionId = session_id();
         $_SESSION['sessionId'] = session_id();
         session_regenerate_id();
-        // $ip = $_SERVER['REMOTE_ADDR'];
-      
-
-
-        // $_SESSION['department'] = $row["user_depart"];
-        // $_SESSION['User_Type'] = $row['user_type'];
-        // print_r($_SESSION);
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $_SESSION['UserName'] = $UserName;
+        $_SESSION['department'] = $row["user_depart"];
+        $_SESSION['User_Type'] = $row['user_type'];
+        $_SESSION['CURRENT_USER'] = $UserName;
         /*
           $_SESSION["CURRENT_USER"] = $UserName;
           $_SESSION['User_Type'] = $row['dev'];
@@ -56,15 +51,13 @@ if ($Command == "CheckUsers") {
           $_SESSION['salEx'] = $salEx;
           }
          */
-          
 
         $action = "ok";
         $cookie_name = "user";
         $cookie_value = $UserName;
         //setcookie($cookie_name, $cookie_value, time() + (43200)); // 86400 = 1 day
 
-        // $token = substr(hash('sha512', mt_rand() . microtime()), 0, 50);
-        // echo $token;
+        $token = substr(hash('sha512', mt_rand() . microtime()), 0, 50);
         $extime = time() + 43200;
 
 
@@ -98,25 +91,25 @@ if ($_GET["Command"] == "save_inv") {
     $sql = "select * from user_mast where user_name='" . $_GET["user_name"] . "'";
     $result = $conn->query($sql);
     if ($row1 = $result->fetch()) {
-        echo "User Found !!!";
+        echo "Already Registered";
     } else {
-        $sql = "insert into user_mast(user_name,user_type, password,U_email,R_email) values ('" . $_GET["user_name"] . "', '" . $_GET["user_type"] . "', '" . $_GET["password"] . "', '" . $_GET["U_email"] . "', '" . $_GET["R_email"] . "')";
+        $sql = "insert into user_mast(user_name, password) values ('" . $_GET["user_name"] . "', '" . $_GET["password"] . "')";
 //        echo $sql;
         $result = $conn->query($sql);
 //        echo "Saved";
 
         date_default_timezone_set('Asia/Colombo');
 
-        require 'email/PHPMailerAutoload.php';
-        $mail = new PHPMailer;
-        $mail->isSMTP();
+        // require 'email/PHPMailerAutoload.php';
+        // $mail = new PHPMailer;
+        // $mail->isSMTP();
 
-        $mail->Host = 'mail.infodatasl.com';
-        $mail->Port = 587;
-        $mail->SMTPSecure = 'tls';
-        $mail->SMTPAuth = true;
-        $mail->Username = "autoemail@infodatasl.com";
-        $mail->Password = "autoemail@123";
+        // $mail->Host = 'mail.infodatasl.com';
+        // $mail->Port = 587;
+        // $mail->SMTPSecure = 'tls';
+        // $mail->SMTPAuth = true;
+        // $mail->Username = "autoemail@infodatasl.com";
+        // $mail->Password = "autoemail@123";
 
 
         $sql = "select * from user_mast where user_name='" . $_GET["user_name"] . "'";
@@ -127,59 +120,59 @@ if ($_GET["Command"] == "save_inv") {
             $uemail = $row["U_email"];
             $remail = $row["R_email"];
 
-            $mail->setFrom('autoemail@infodatasl.com', 'Kot System');
-            $mail->addAddress($uemail, 'hhh');
+            // $mail->setFrom('autoemail@infodatasl.com', 'Kot System');
+            // $mail->addAddress($uemail, 'hhh');
         }
 
-        $table = "";
-        $table .= "<table style = 'width: 660px;' class = 'table1'>
-                    <tr>
-                    <th class = 'bottom head' colspan = '3'><center>Unichela Biyagama</center></th>
-                    </tr>
+        // $table = "";
+        // $table .= "<table style = 'width: 660px;' class = 'table1'>
+        //             <tr>
+        //             <th class = 'bottom head' colspan = '3'><center>Unichela Biyagama</center></th>
+        //             </tr>
 
-                    <tr>
-                    <th class = 'bottom head' colspan = '3'><center>Kot System Login Details</center></th>
-                    </tr>
-                    <tr>
-                    <th class = 'bottom head' colspan = '3'><center></center></th>
-                    </tr>
-                    <tr>
-                    <th class = 'bottom head' colspan = '3'><center></center></th>
-                    </tr>
-                    <tr>
-                    <th class = 'bottom head' colspan = '3'><center></center></th>
-                    </tr>
-                    </table>";
+        //             <tr>
+        //             <th class = 'bottom head' colspan = '3'><center>Kot System Login Details</center></th>
+        //             </tr>
+        //             <tr>
+        //             <th class = 'bottom head' colspan = '3'><center></center></th>
+        //             </tr>
+        //             <tr>
+        //             <th class = 'bottom head' colspan = '3'><center></center></th>
+        //             </tr>
+        //             <tr>
+        //             <th class = 'bottom head' colspan = '3'><center></center></th>
+        //             </tr>
+        //             </table>";
 
-        $table .= "<table style = 'width: 660px;' class = 'table1'><tr>
-                    <th style = 'width: 40px;' class = 'left'>User Name :</th>
-                    <th style = 'width: 200px;' class = 'left'>" . $_GET['user_name'] . "</th>
+        // $table .= "<table style = 'width: 660px;' class = 'table1'><tr>
+        //             <th style = 'width: 40px;' class = 'left'>User Name :</th>
+        //             <th style = 'width: 200px;' class = 'left'>" . $_GET['user_name'] . "</th>
 
-                    </tr></table>";
+        //             </tr></table>";
 
-        $table .= "<table style = 'width: 660px;' class = 'table1'><tr>
-                    <th style = 'width: 40px;' class = 'left'>Password :</th>
-                    <th style = 'width: 200px;' class = 'left'>" . $_GET['password'] . "</th>
+        // $table .= "<table style = 'width: 660px;' class = 'table1'><tr>
+        //             <th style = 'width: 40px;' class = 'left'>Password :</th>
+        //             <th style = 'width: 200px;' class = 'left'>" . $_GET['password'] . "</th>
 
-                    </tr></table>";
+        //             </tr></table>";
 
-        $table .= "<table style = 'width: 660px;' class = 'table1'><tr>
-                    <th style = 'width: 20px;' class = 'left'></th>
-                    <th style = 'width: 200px;' class = 'left'>Login Url :</th>
-                    <a href = 'http://infodatasl.com/UnichelaBiyagama/index.php'>Login Here</a>
+        // $table .= "<table style = 'width: 660px;' class = 'table1'><tr>
+        //             <th style = 'width: 20px;' class = 'left'></th>
+        //             <th style = 'width: 200px;' class = 'left'>Login Url :</th>
+        //             <a href = 'http://infodatasl.com/UnichelaBiyagama/index.php'>Login Here</a>
 
-                    </tr></table>";
+        //             </tr></table>";
 
 
-        $mail->Body = '"' . $table . '"';
-        $mail->Subject = 'Kot Order';
-        $mail->isHTML(true);
+        // $mail->Body = '"' . $table . '"';
+        // $mail->Subject = 'Kot Order';
+        // $mail->isHTML(true);
 
-        if (!$mail->send()) {
-            echo "Mailer Error: " . $mail->ErrorInfo;
-        } else {
-            echo "Saved";
-        }
+        // if (!$mail->send()) {
+            // echo "Mailer Error: " . $mail->ErrorInfo;
+        // } else {
+            echo "LOG";
+        // }
     }
 }
 

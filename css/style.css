@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: #000 url(https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  color: #fff;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  font-family: 'Roboto Slab', serif;
+}
+
+.color-overlay {
+  width: 100%;
+  height: 100vh;
+  background: #14145a;
+  opacity: 0.8;
+  position: absolute;
+  z-index: -1;
+  overflow-y: hidden;
+}
+
+.login-wrapper {
+  max-width: 1400px;
+  margin: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  height: 100vh;
+  place-content: center;
+}
+
+input.stu-feild {
+  border: none;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+  padding: 0 2rem;
+}
+
+.stu-login {
+  padding: 10px;
+  color: black;
+  width: 100%;
+  height: 45px;
+  background: #dba514;
+  border: none;
+  outline: none;
+  font-weight: 900;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.stu-login:hover {
+  width: 100%;
+  height: 45px;
+  background: #9c7a1d;
+  border: none;
+  outline: none;
+  font-weight: 900;
+  color: #fff;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+
+.login-second h1 {
+  color: #fff;
+}
+
+.login-second p {
+  color: #fff;
+}
+
+.login-second {
+  text-align: center;
+}
+
+.login-second p {
+  color: #fff;
+  margin-bottom: 5rem;
+  margin-top: 2rem;
+  font-size: 20px;
+}
+
+.section-img img {
+  width: 50%;
+}
+
+.section-img {
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+}
+
+@media only screen and (max-width: 900px) {
+  .login-wrapper {
+    margin: 1rem;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .section-img {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    place-content: center;
+  }
+  body {
+    overflow: hidden;
+  }
+}
+/*# sourceMappingURL=style.css.map */

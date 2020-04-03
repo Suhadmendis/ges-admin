@@ -56,6 +56,8 @@ function IsValiedData()
 }
 
 
+
+
  
 
 // logon button stateChanged
@@ -69,12 +71,12 @@ function CheckUsers()
         var val = xmlHttp.responseText;
     
         if (val == "ok") {
-            location.href = "index.php";
+            location.href = "home.php";
         } else if (val == "Invalied Connection") {
             alert(xmlHttp.responseText);
         } else {
            
-            document.getElementById("txterror").innerHTML = "Invalied UserName or Password";
+            // document.getElementById("txterror").innerHTML = "Invalied UserName or Password";
         }
     }
 }

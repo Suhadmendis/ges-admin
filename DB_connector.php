@@ -7,11 +7,16 @@
  */
 $servername = 'localhost';
 $username = 'root';
-// $servername = 'localhost';
-// $username = 'root';
 $password = '';
 $port = 3306;
 $dbname = 'ges';
+
+
+// $servername = '138.128.174.10';
+// $username = 'amttran1';
+// $password = 'pY8v4R5[8pXk!V';
+// $port = 10060;
+// $dbname = 'amttran1_amt';
 
 
 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);

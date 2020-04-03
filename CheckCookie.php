@@ -4,7 +4,7 @@ session_start();
 date_default_timezone_set('Asia/Colombo');
 
 function chk_cookie($UserName) {
-    include './DB_connector.php';
+    include './connection_sql.php';
 
     $sql = "SELECT * FROM user_mast WHERE user_name =  '" . $UserName . "'";
     $result = $conn->query($sql);
@@ -17,9 +17,6 @@ function chk_cookie($UserName) {
         $ip = $_SERVER['REMOTE_ADDR'];
         $_SESSION['UserName'] = $UserName;
         $_SESSION["CURRENT_USER"] = $UserName;
-
-
-        
         /*
           $_SESSION['User_Type'] = $row['dev'];
 
