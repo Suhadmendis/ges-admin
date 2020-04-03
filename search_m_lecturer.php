@@ -29,7 +29,7 @@ include_once './DB_connector.php';
             <script language="JavaScript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
             <script language="JavaScript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
-            <script language="JavaScript" src="js/m_batch.js"></script>
+            <script language="JavaScript" src="js/m_lecturer.js"></script>
 
 
 
@@ -37,15 +37,7 @@ include_once './DB_connector.php';
 
     <body>
 
-        <?php if (isset($_GET['cur'])) { ?>
-            <input type="hidden" value="<?php echo $_GET['cur']; ?>" id="cur" />
-            <?php
-        } else {
-            ?>
-            <input type="hidden" value="" id="cur" />
-            <?php
-        }
-        ?>
+     
         <table width="735"   class="table table-bordered">
 
             <tr>
@@ -63,15 +55,16 @@ include_once './DB_connector.php';
 
                     <tr>
                         <th>Reference</th>
-                        <th>batch_code</th>
-                        <th>batch_name</th>
-                        
+                        <th>Lecturer Name</th>
+                        <th>Address</th>
+                        <th>Tel</th>
                     </tr>
                 </thead>
 
+
                 <tbody>
                 <?php
-                $sql = "SELECT * from m_batch";
+                $sql = "SELECT * from m_lecturer";
 
                 foreach ($conn->query($sql) as $row) {
                 
@@ -79,11 +72,11 @@ include_once './DB_connector.php';
                       
                     echo "<tr>                
                               <td onclick=\"getForm('$REF','$IDF');\">" . $REF . "</a></td>
-                              <td onclick=\"getForm('$REF','$IDF');\">" . $row['batch_code'] . "</a></td>
-                              <td onclick=\"getForm('$REF','$IDF');\">" . $row['batch_name'] . "</a></td>
+                              <td onclick=\"getForm('$REF','$IDF');\">" . $row['lecturer_name'] . "</a></td>
+                              <td onclick=\"getForm('$REF','$IDF');\">" . $row['address_1'] . "</a></td>
+                              <td onclick=\"getForm('$REF','$IDF');\">" . $row['tel_1'] . "</a></td>
                              </tr>";
                 }
-                
                 ?>
             </table>
         </div>

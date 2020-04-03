@@ -11,21 +11,26 @@ date_default_timezone_set('Asia/Colombo');
 if ($_GET["Command"] == "generate") {
    header('Content-Type: application/json');
 
-    $sql = "SELECT batch_ref FROM sys_info";
+    $ResponseXML = "";
+    $ResponseXML .= "<new>";
+
+    $sql = "SELECT lecturer_ref FROM sys_info";
     $result = $conn->query($sql);
     $row = $result->fetch();
-    $no = $row['batch_ref'];
-    $tmpinvno = "000000" . $row["batch_ref"];
+    $no = $row['lecturer_ref'];
+    $tmpinvno = "000000" . $row["lecturer_ref"];
     $lenth = strlen($tmpinvno);
-    $no = trim("BAT/") . substr($tmpinvno, $lenth - 7);
+    $no = trim("LEC/") . substr($tmpinvno, $lenth - 7);
 
-    
-    $en_name = 'Batch';
+
+    $en_name = "Lecturer";
 
     $objArray = Array();
     array_push($objArray,$no,$en_name);
 
-    echo json_encode($objArray); 
+    echo json_encode($objArray);
+
+   
 }
 
 
@@ -37,24 +42,25 @@ if ($_GET["Command"] == "save_item") {
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $conn->beginTransaction();
 
-        $sql = "SELECT batch_ref FROM sys_info";
+        $sql = "SELECT lecturer_ref FROM sys_info";
         $resul = $conn->query($sql);
         $row = $resul->fetch();
-        $no = $row["batch_ref"];
-        $tmpinvno = "000000" . $row["batch_ref"];
+        $no = $row["lecturer_ref"];
+        $tmpinvno = "000000" . $row["lecturer_ref"];
         $lenth = strlen($tmpinvno);
-        $no1 = trim("BAT/") . substr($tmpinvno, $lenth - 7);
+        $no1 = trim("CON/") . substr($tmpinvno, $lenth - 7);
 
 
+ 
+        
 
-
-        $sql = "Insert into m_batch(REF, batch_code, batch_name, course_ref, course_code, course_name, des, start_date, day, s_time, e_time, amount, active, user)values
-                        ('" . $no1 . "' ,'" . $_GET['batch_code'] . "' ,'" . $_GET['batch_name'] . "' ,'" . $_GET['course_ref'] . "' ,'" . $_GET['course_code'] . "' ,'" . $_GET['course_name'] . "' ,'" . $_GET['des'] . "' ,'" . $_GET['start_date'] . "' ,'" . $_GET['day'] . "' ,'" . $_GET['s_time'] . "' ,'" . $_GET['e_time'] . "' ,'" . $_GET['amount'] . "' ,'" . $_GET['active'] . "' ,'user')";
+        $sql = "Insert into m_lecturer(REF, lecturer_name, des, address_1, address_2, tel_1, tel_2, email, active)values
+                        ('" . $no1 . "' ,'" . $_GET['lecturer_name'] . "' ,'" . $_GET['des'] . "' ,'" . $_GET['address_1'] . "' ,'" . $_GET['address_2'] . "' ,'" . $_GET['tel_1'] . "' ,'" . $_GET['tel_2'] . "' ,'" . $_GET['email'] . "' ,'" . $_GET['active'] . "')";
         $result = $conn->query($sql);
         
         
         $no2 = $no + 1;
-        $sql = "update sys_info set batch_ref = '$no2' where batch_ref = '$no'";
+        $sql = "update sys_info set lecturer_ref = '$no2' where lecturer_ref = '$no'";
         $result = $conn->query($sql);
 
         $conn->commit();
@@ -74,7 +80,7 @@ if ($_GET["Command"] == "getForm") {
 
     $REF = $_GET["REF"];
 
-    $sql = "select * from m_batch where REF= '" . $REF . "'";
+    $sql = "select * from m_lecturer where REF= '" . $REF . "'";
 
     $sql = $conn->query($sql);
     if ($row = $sql->fetch()) {

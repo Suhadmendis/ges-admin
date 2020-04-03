@@ -50,8 +50,12 @@ if ($_GET["Command"] == "save_item") {
         $lenth = strlen($tmpinvno);
         $no1 = trim("COR/") . substr($tmpinvno, $lenth - 7);
 
-        $sql = "Insert into m_course(REF, player_ref, mdate, amount)values
-                        ('" . $no1 . "' ,'" . $_GET['player_ref'] . "' ,'" . $_GET['mdate'] . "' ,'" . $_GET['amount'] . "')";
+
+
+      
+
+        $sql = "Insert into m_course(REF, course_code, course_name, faculty_ref, faculty_name, batch_ref, batch_code, des, level, type, requirement_1, requirement_2, requirement_3, requirement_4, requirement_5, duration, amount, active, user)values ('" . $no1 . "', '" . $_GET['course_code'] . "', '" . $_GET['course_name'] . "', '" . $_GET['faculty_ref'] . "', '" . $_GET['faculty_name'] . "', '" . $_GET['batch_ref'] . "', '" . $_GET['batch_code'] . "', '" . $_GET['des'] . "', '" . $_GET['level'] . "', '" . $_GET['type'] . "', '" . $_GET['requirement_1'] . "', '" . $_GET['requirement_2'] . "', '" . $_GET['requirement_3'] . "', '" . $_GET['requirement_4'] . "', '" . $_GET['requirement_5'] . "', '" . $_GET['duration'] . "', '" . $_GET['amount'] . "', '" . $_GET['active'] . "', 'user')";
+
         $result = $conn->query($sql);
         
         
@@ -76,7 +80,7 @@ if ($_GET["Command"] == "getForm") {
 
     $REF = $_GET["REF"];
 
-    $sql = "select * from m_course where REF= '" . $REF . "'";
+    $sql = "select * from m_content where REF= '" . $REF . "'";
 
     $sql = $conn->query($sql);
     if ($row = $sql->fetch()) {

@@ -35,6 +35,7 @@ if ($_GET["Command"] == "generate") {
 
 
 
+
 if ($_GET["Command"] == "save_item") {
  
 
@@ -50,8 +51,8 @@ if ($_GET["Command"] == "save_item") {
         $lenth = strlen($tmpinvno);
         $no1 = trim("CON/") . substr($tmpinvno, $lenth - 7);
 
-        $sql = "Insert into m_content(REF, player_ref, mdate, amount)values
-                        ('" . $no1 . "' ,'" . $_GET['player_ref'] . "' ,'" . $_GET['mdate'] . "' ,'" . $_GET['amount'] . "')";
+        $sql = "Insert into m_faculty(REF, faculty_code, faculty_name, active)values
+                        ('" . $no1 . "' ,'" . $_GET['faculty_code'] . "' ,'" . $_GET['faculty_name'] . "' ,'" . $_GET['active'] . "')";
         $result = $conn->query($sql);
         
         
@@ -76,7 +77,7 @@ if ($_GET["Command"] == "getForm") {
 
     $REF = $_GET["REF"];
 
-    $sql = "select * from m_content where REF= '" . $REF . "'";
+    $sql = "select * from m_faculty where REF= '" . $REF . "'";
 
     $sql = $conn->query($sql);
     if ($row = $sql->fetch()) {

@@ -37,15 +37,7 @@ include_once './DB_connector.php';
 
     <body>
 
-        <?php if (isset($_GET['cur'])) { ?>
-            <input type="hidden" value="<?php echo $_GET['cur']; ?>" id="cur" />
-            <?php
-        } else {
-            ?>
-            <input type="hidden" value="" id="cur" />
-            <?php
-        }
-        ?>
+       
         <table width="735"   class="table table-bordered">
 
             <tr>
@@ -63,9 +55,9 @@ include_once './DB_connector.php';
 
                     <tr>
                         <th>Reference</th>
-                        <th>Player</th>
-                        <th>Date</th>
-                        <th>Amount</th>
+                        <th>Course Code</th>
+                        <th>Course Name</th>
+                        <th>Faculty Name</th>
                     </tr>
                 </thead>
 
@@ -73,18 +65,15 @@ include_once './DB_connector.php';
                 <?php
                 $sql = "SELECT * from m_course";
               
-
-              
-
                 foreach ($conn->query($sql) as $row) {
                 
                     $REF = $row['REF'];
                       
                     echo "<tr>                
                               <td onclick=\"getForm('$REF','$IDF');\">" . $REF . "</a></td>
-                              <td onclick=\"getForm('$REF','$IDF');\">" . $row['player_name'] . "</a></td>
-                              <td onclick=\"getForm('$REF','$IDF');\">" . $row['mdate'] . "</a></td>
-                              <td onclick=\"getForm('$REF','$IDF');\">" . $row['amount'] . "</a></td>
+                              <td onclick=\"getForm('$REF','$IDF');\">" . $row['course_code'] . "</a></td>
+                              <td onclick=\"getForm('$REF','$IDF');\">" . $row['course_name'] . "</a></td>
+                              <td onclick=\"getForm('$REF','$IDF');\">" . $row['faculty_name'] . "</a></td>
                              </tr>";
                 }
                 ?>
@@ -100,4 +89,3 @@ include_once './DB_connector.php';
 </script>
     </body>
 </html>
-

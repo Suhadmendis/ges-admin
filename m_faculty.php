@@ -13,7 +13,7 @@
             <!-- /.box-header -->
             <div class="btn-group" style="padding: 10px;">
               <a class="btn btn-success" onclick="save_info();">Save</a>
-              <a class="btn btn-primary" onclick="window.open('search_m_content.php?IDF=Master', 'mywin', 'width=800, height=700');" class="btn btn-info btn-sm">Search</a>
+              <a class="btn btn-primary" onclick="window.open('search_m_faculty.php?IDF=Master', 'mywin', 'width=800, height=700');" class="btn btn-info btn-sm">Search</a>
               <a class="btn btn-danger" onclick="">Cancel</a>
               
               
@@ -48,20 +48,20 @@
                   <div class="form-group"></div>
                   <div class="form-group">
                     <div class="col-sm-2">
-                      <label for="day" >Content Code</label>
+                      <label for="day" >Faculty Code</label>
                     </div>
                     <div class="col-sm-2">
-                      <input type="text" class="form-control" id="content_code" placeholder="Content Code">
+                      <input type="text" class="form-control" id="faculty_code" placeholder="Faculty Code">
                     </div>
                   </div><br><br>
           
                   <div class="form-group"></div>
                   <div class="form-group">
                     <div class="col-sm-2">
-                      <label for="day" >Content Name</label>
+                      <label for="day" >Faculty Name</label>
                     </div>
                     <div class="col-sm-2">
-                      <input type="text" class="form-control" id="content_name" placeholder="Content Name">
+                      <input type="text" class="form-control" id="faculty_name" placeholder="Faculty Name">
                     </div>
                   </div><br><br>
 

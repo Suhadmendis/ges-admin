@@ -14,6 +14,8 @@ if (isset($_COOKIE[$cookie_name])) {
   header('Location: ' . "auth.php");
   exit();
 }
+
+
 // -----------------------
 include 'head_res.php'; 
 if (isset($_GET['url'])) {
@@ -40,6 +42,10 @@ if (isset($_GET['url'])) {
 
   if ($_GET['url'] == "faculty"){
     include 'm_faculty.php';
+  }
+
+  if ($_GET['url'] == "lecturer"){
+    include 'm_lecturer.php';
   }
   
 

@@ -6,7 +6,7 @@ var vue = new Vue({
   },
     mounted () {
         axios
-          .get('m_batch_data.php?Command=generate')
+          .get('m_lecturer_data.php?Command=generate')
           .then(response => {
             this.en_name = response.data[1]
             this.REF = response.data[0]
@@ -55,7 +55,7 @@ function getdt() {
         return;
     }
 
-    var url = "m_batch_data.php";
+    var url = "m_lecturer_data.php";
     url = url + "?Command=" + "getdt";
     url = url + "&ls=" + "new";
 
@@ -97,28 +97,22 @@ function save_info()
         return false;
     }
 
-    var url = "m_batch_data.php";
+    var url = "m_lecturer_data.php";
     url = url + "?Command=" + "save_item"; 
     url = url + "&REF=" + document.getElementById("REF").value;
-    url = url + "&batch_code=" + document.getElementById("batch_code").value;
-    url = url + "&batch_name=" + document.getElementById("batch_name").value;
-    url = url + "&course_ref=" + document.getElementById("course_ref").value;
-    url = url + "&course_code=" + document.getElementById("course_code").value;
-    url = url + "&course_name=" + document.getElementById("course_name").value;
+    url = url + "&lecturer_name=" + document.getElementById("lecturer_name").value;
     url = url + "&des=" + document.getElementById("des").value;
-    url = url + "&start_date=" + document.getElementById("start_date").value;
-    url = url + "&day=" + document.getElementById("day").value;
-    url = url + "&s_time=" + document.getElementById("s_time").value;
-    url = url + "&e_time=" + document.getElementById("e_time").value;
-    url = url + "&amount=" + document.getElementById("amount").value;
-
+    url = url + "&address_1=" + document.getElementById("address_1").value;
+    url = url + "&address_2=" + document.getElementById("address_2").value;
+    url = url + "&tel_1=" + document.getElementById("tel_1").value;
+    url = url + "&tel_2=" + document.getElementById("tel_2").value;
+    url = url + "&email=" + document.getElementById("email").value;
     
     if (document.getElementById("active").checked) {
         url = url + "&active=" + "1";
     }else{
         url = url + "&active=" + "0";
     }
-
 
     xmlHttp.onreadystatechange = salessaveresult;
     xmlHttp.open("GET", url, true);
@@ -154,7 +148,7 @@ function getForm(REF, IDF)
         alert("Browser does not support HTTP Request");
         return;
     }
-    var url = "m_batch_data.php";
+    var url = "m_lecturer_data.php";
     url = url + "?Command=" + "getForm";
     url = url + "&REF=" + REF;
     url = url + "&IDF=" + IDF;
@@ -180,20 +174,14 @@ function getFromValues()
         if (IDF === "Master") {
             
             opener.document.getElementById('REF').value = objSup.REF;
-            opener.document.getElementById('batch_code').value = objSup.batch_code;
-            opener.document.getElementById('batch_name').value = objSup.batch_name;
-            opener.document.getElementById('course_ref').value = objSup.course_ref;
-            opener.document.getElementById('course_code').value = objSup.course_code;
-            opener.document.getElementById('course_name').value = objSup.course_name;
+            opener.document.getElementById('lecturer_name').value = objSup.lecturer_name;
             opener.document.getElementById('des').value = objSup.des;
-            opener.document.getElementById('start_date').value = objSup.start_date;
-            opener.document.getElementById('day').value = objSup.day;
-            opener.document.getElementById('s_time').value = objSup.s_time;
-            opener.document.getElementById('e_time').value = objSup.e_time;
-            opener.document.getElementById('amount').value = objSup.amount;
-
+            opener.document.getElementById('address_1').value = objSup.address_1;
+            opener.document.getElementById('address_2').value = objSup.address_2;
+            opener.document.getElementById('tel_1').value = objSup.tel_1;
+            opener.document.getElementById('tel_2').value = objSup.tel_2;
+            opener.document.getElementById('email').value = objSup.email;
         }
-
       
         self.close();
     

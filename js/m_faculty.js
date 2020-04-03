@@ -100,8 +100,8 @@ function save_info()
     var url = "m_faculty_data.php";
     url = url + "?Command=" + "save_item";
     url = url + "&REF=" + document.getElementById("REF").value;
-    url = url + "&content_code=" + document.getElementById("content_code").value;
-    url = url + "&content_name=" + document.getElementById("content_name").value;
+    url = url + "&faculty_code=" + document.getElementById("faculty_code").value;
+    url = url + "&faculty_name=" + document.getElementById("faculty_name").value;
 
     if (document.getElementById("active").checked) {
         url = url + "&active=" + "1";
@@ -123,10 +123,12 @@ function salessaveresult() {
     if (xmlHttp.readyState == 4 || xmlHttp.readyState == "complete") {
 
         if (xmlHttp.responseText == "Saved") {
+            alert(xmlHttp.responseText);
             // document.getElementById('msg_box').innerHTML = "<div class='alert alert-success' role='alert'><span class='center-block'>Saved</span></div>";
             // $("#msg_box").hide().slideDown(400).delay(2000);
             // $("#msg_box").slideUp(400);
         } else {
+            alert(xmlHttp.responseText);
             // document.getElementById('msg_box').innerHTML = "<div class='alert alert-warning' role='alert'><span class='center-block'>" + xmlHttp.responseText + "</span></div>";
         }
     }
@@ -166,11 +168,9 @@ function getFromValues()
         var objSup = JSON.parse(XMLAddress1[0].childNodes[0].nodeValue);
 
         if (IDF === "Master") {
-            
             opener.document.getElementById('REF').value = objSup.REF;
-            opener.document.getElementById('player_ref').value = objSup.player_ref;
-            opener.document.getElementById('mdate').value = objSup.mdate;
-            opener.document.getElementById('amount').value = objSup.amount;
+            opener.document.getElementById('faculty_code').value = objSup.faculty_code;
+            opener.document.getElementById('faculty_name').value = objSup.faculty_name;
         }
 
       

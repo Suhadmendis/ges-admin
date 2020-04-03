@@ -76,14 +76,14 @@ if ($_GET["Command"] == "getForm") {
     if ($row = $sql->fetch()) {
         $ResponseXML .= "<objSup><![CDATA[" . json_encode($row) . "]]></objSup>";
     }
-
-     $sql = "select * from m_allo where REF_REG = '" . $REF . "'";
+    
+    //  $sql = "select * from m_allo where REF_REG = '" . $REF . "'";
 
    
-        $result = $conn->query($sql);
-        $row = $result->fetchAll();
+    //     $result = $conn->query($sql);
+    //     $row = $result->fetchAll();
     
-    $ResponseXML .= "<objallo><![CDATA[" . json_encode($row) . "]]></objallo>";
+    // $ResponseXML .= "<objallo><![CDATA[" . json_encode($row) . "]]></objallo>";
     
 
     $ResponseXML .= "<IDF><![CDATA[" . $_GET['IDF'] . "]]></IDF>";

@@ -37,15 +37,7 @@ include_once './DB_connector.php';
 
     <body>
 
-        <?php if (isset($_GET['cur'])) { ?>
-            <input type="hidden" value="<?php echo $_GET['cur']; ?>" id="cur" />
-            <?php
-        } else {
-            ?>
-            <input type="hidden" value="" id="cur" />
-            <?php
-        }
-        ?>
+     
         <table width="735"   class="table table-bordered">
 
             <tr>
@@ -63,18 +55,14 @@ include_once './DB_connector.php';
 
                     <tr>
                         <th>Reference</th>
-                        <th>Player</th>
-                        <th>Date</th>
-                        <th>Amount</th>
+                        <th>Content Code</th>
+                        <th>Content Name</th>
                     </tr>
                 </thead>
 
                 <tbody>
                 <?php
                 $sql = "SELECT * from m_content";
-              
-
-              
 
                 foreach ($conn->query($sql) as $row) {
                 
@@ -82,9 +70,8 @@ include_once './DB_connector.php';
                       
                     echo "<tr>                
                               <td onclick=\"getForm('$REF','$IDF');\">" . $REF . "</a></td>
-                              <td onclick=\"getForm('$REF','$IDF');\">" . $row['player_name'] . "</a></td>
-                              <td onclick=\"getForm('$REF','$IDF');\">" . $row['mdate'] . "</a></td>
-                              <td onclick=\"getForm('$REF','$IDF');\">" . $row['amount'] . "</a></td>
+                              <td onclick=\"getForm('$REF','$IDF');\">" . $row['content_code'] . "</a></td>
+                              <td onclick=\"getForm('$REF','$IDF');\">" . $row['content_name'] . "</a></td>
                              </tr>";
                 }
                 ?>
