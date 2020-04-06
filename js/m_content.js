@@ -170,9 +170,14 @@ function getFromValues()
         if (IDF === "Master") {
             
             opener.document.getElementById('REF').value = objSup.REF;
-            opener.document.getElementById('active').value = objSup.active;
             opener.document.getElementById('content_code').value = objSup.content_code;
             opener.document.getElementById('content_name').value = objSup.content_name;
+            
+            if (objSup.active == "1"){
+                opener.document.getElementById('active').checked = true;
+            }else{
+                opener.document.getElementById('active').checked = false;
+            }
 
         }
 

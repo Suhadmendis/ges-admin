@@ -192,6 +192,14 @@ function getFromValues()
             opener.document.getElementById('e_time').value = objSup.e_time;
             opener.document.getElementById('amount').value = objSup.amount;
 
+            opener.document.getElementById('active').value = objSup.active;
+
+            if (objSup.active == "1"){
+                opener.document.getElementById('active').checked = true;
+            }else{
+                opener.document.getElementById('active').checked = false;
+            }
+
         }
 
       

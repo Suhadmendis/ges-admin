@@ -171,6 +171,11 @@ function getFromValues()
             opener.document.getElementById('REF').value = objSup.REF;
             opener.document.getElementById('faculty_code').value = objSup.faculty_code;
             opener.document.getElementById('faculty_name').value = objSup.faculty_name;
+            if (objSup.active == "1"){
+                opener.document.getElementById('active').checked = true;
+            }else{
+                opener.document.getElementById('active').checked = false;
+            }
         }
 
       
