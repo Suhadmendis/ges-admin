@@ -48,6 +48,7 @@ function lost_focus(key) {
 
 
 function getdt() {
+    
 
     xmlHttp = GetXmlHttpObject();
     if (xmlHttp == null) {

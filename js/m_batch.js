@@ -47,37 +47,37 @@ function lost_focus(key) {
 
 
 
-function getdt() {
+// function getdt() {
 
-    xmlHttp = GetXmlHttpObject();
-    if (xmlHttp == null) {
-        alert("Browser does not support HTTP Request");
-        return;
-    }
+//     xmlHttp = GetXmlHttpObject();
+//     if (xmlHttp == null) {
+//         alert("Browser does not support HTTP Request");
+//         return;
+//     }
 
-    var url = "m_batch_data.php";
-    url = url + "?Command=" + "getdt";
-    url = url + "&ls=" + "new";
+//     var url = "m_batch_data.php";
+//     url = url + "?Command=" + "getdt";
+//     url = url + "&ls=" + "new";
 
-    xmlHttp.onreadystatechange = assign_dt;
-    xmlHttp.open("GET", url, true);
-    xmlHttp.send(null);
-}
+//     xmlHttp.onreadystatechange = assign_dt;
+//     xmlHttp.open("GET", url, true);
+//     xmlHttp.send(null);
+// }
 
-function assign_dt() {
-    var XMLAddress1;
+// function assign_dt() {
+//     var XMLAddress1;
 
-    if (xmlHttp.readyState == 4 || xmlHttp.readyState == "complete")
-    {
+//     if (xmlHttp.readyState == 4 || xmlHttp.readyState == "complete")
+//     {
 
-      XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("id");
-      vue.REF = XMLAddress1[0].childNodes[0].nodeValue;
+//       XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("id");
+//       vue.REF = XMLAddress1[0].childNodes[0].nodeValue;
 
-      XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("en_name");
-      vue.en_name = XMLAddress1[0].childNodes[0].nodeValue;
+//       XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("en_name");
+//       vue.en_name = XMLAddress1[0].childNodes[0].nodeValue;
 
-    }
-}
+//     }
+// }
 
 
 

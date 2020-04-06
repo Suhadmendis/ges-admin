@@ -40,12 +40,13 @@ if ($_GET["Command"] == "save_item") {
         $sql = "SELECT registration_ref FROM sys_info";
         $resul = $conn->query($sql);
         $row = $resul->fetch();
+        $no = $row["registration_ref"];
         $tmpinvno = "000000" . $row["registration_ref"];
         $lenth = strlen($tmpinvno);
-        $no = trim("REG/") . substr($tmpinvno, $lenth - 7);
+        $no1 = trim("REG/") . substr($tmpinvno, $lenth - 7);
 
         $sql = "Insert into m_registration(REF ,first_name ,last_name ,guardian_name ,guardian_tel ,address_1 ,address_2 ,tel_1 ,tel_2 ,sex ,dob ,email ,remark ,joineddate ,active,black_list)values
-                        ('" . $no . "' ,'" . $_GET['first_name'] . "' ,'" . $_GET['last_name'] . "' ,'" . $_GET['guardian_name'] . "' ,'" . $_GET['guardian_tel'] . "' ,'" . $_GET['address_1'] . "' ,'" . $_GET['address_2'] . "' ,'" . $_GET['tel_1'] . "' ,'" . $_GET['tel_2'] . "' ,'" . $_GET['sex'] . "' ,'" . $_GET['dob'] . "' ,'" . $_GET['email'] . "' ,'" . $_GET['remark'] . "' ,'" . $_GET['joineddate'] . "' ,'" . $_GET['active'] . "','" . $_GET['black_list'] . "')";
+                        ('" . $no1 . "' ,'" . $_GET['first_name'] . "' ,'" . $_GET['last_name'] . "' ,'" . $_GET['guardian_name'] . "' ,'" . $_GET['guardian_tel'] . "' ,'" . $_GET['address_1'] . "' ,'" . $_GET['address_2'] . "' ,'" . $_GET['tel_1'] . "' ,'" . $_GET['tel_2'] . "' ,'" . $_GET['sex'] . "' ,'" . $_GET['dob'] . "' ,'" . $_GET['email'] . "' ,'" . $_GET['remark'] . "' ,'" . $_GET['joineddate'] . "' ,'" . $_GET['active'] . "','" . $_GET['black_list'] . "')";
         $result = $conn->query($sql);
         
         

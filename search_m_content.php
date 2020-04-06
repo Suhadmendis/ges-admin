@@ -29,7 +29,7 @@ include_once './DB_connector.php';
             <script language="JavaScript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
             <script language="JavaScript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
-            <script language="JavaScript" src="js/m_course.js"></script>
+            <script language="JavaScript" src="js/m_content.js"></script>
 
 
 

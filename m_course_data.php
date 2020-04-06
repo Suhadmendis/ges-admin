@@ -80,7 +80,7 @@ if ($_GET["Command"] == "getForm") {
 
     $REF = $_GET["REF"];
 
-    $sql = "select * from m_content where REF= '" . $REF . "'";
+    $sql = "select * from m_course where REF= '" . $REF . "'";
 
     $sql = $conn->query($sql);
     if ($row = $sql->fetch()) {

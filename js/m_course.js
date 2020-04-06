@@ -47,37 +47,37 @@ function lost_focus(key) {
 
 
 
-function getdt() {
+// function getdt() {
 
-    xmlHttp = GetXmlHttpObject();
-    if (xmlHttp == null) {
-        alert("Browser does not support HTTP Request");
-        return;
-    }
+//     xmlHttp = GetXmlHttpObject();
+//     if (xmlHttp == null) {
+//         alert("Browser does not support HTTP Request");
+//         return;
+//     }
 
-    var url = "m_course_data.php";
-    url = url + "?Command=" + "getdt";
-    url = url + "&ls=" + "new";
+//     var url = "m_course_data.php";
+//     url = url + "?Command=" + "getdt";
+//     url = url + "&ls=" + "new";
 
-    xmlHttp.onreadystatechange = assign_dt;
-    xmlHttp.open("GET", url, true);
-    xmlHttp.send(null);
-}
+//     xmlHttp.onreadystatechange = assign_dt;
+//     xmlHttp.open("GET", url, true);
+//     xmlHttp.send(null);
+// }
 
-function assign_dt() {
-    var XMLAddress1;
+// function assign_dt() {
+//     var XMLAddress1;
 
-    if (xmlHttp.readyState == 4 || xmlHttp.readyState == "complete")
-    {
+//     if (xmlHttp.readyState == 4 || xmlHttp.readyState == "complete")
+//     {
 
-      XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("id");
-      vue.REF = XMLAddress1[0].childNodes[0].nodeValue;
+//       XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("id");
+//       vue.REF = XMLAddress1[0].childNodes[0].nodeValue;
 
-      XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("en_name");
-      vue.en_name = XMLAddress1[0].childNodes[0].nodeValue;
+//       XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("en_name");
+//       vue.en_name = XMLAddress1[0].childNodes[0].nodeValue;
 
-    }
-}
+//     }
+// }
 
 
 
@@ -183,12 +183,31 @@ function getFromValues()
         if (IDF === "Master") {
             
             opener.document.getElementById('REF').value = objSup.REF;
-            opener.document.getElementById('content_code').value = objSup.content_code;
-            opener.document.getElementById('content_name').value = objSup.content_name;
+            opener.document.getElementById('course_code').value = objSup.course_code;
+            opener.document.getElementById('course_name').value = objSup.course_name;
+            opener.document.getElementById('faculty_ref').value = objSup.faculty_ref;
+            opener.document.getElementById('faculty_name').value = objSup.faculty_name;
+            opener.document.getElementById('batch_ref').value = objSup.batch_ref;
+            opener.document.getElementById('batch_code').value = objSup.batch_code;
+            opener.document.getElementById('des').value = objSup.des;
+            opener.document.getElementById('level').value = objSup.level;
+            opener.document.getElementById('type').value = objSup.type;
+            opener.document.getElementById('requirement_1').value = objSup.requirement_1;
+            opener.document.getElementById('requirement_2').value = objSup.requirement_2;
+            opener.document.getElementById('requirement_3').value = objSup.requirement_3;
+            opener.document.getElementById('requirement_4').value = objSup.requirement_4;
+            opener.document.getElementById('requirement_5').value = objSup.requirement_5;
+            opener.document.getElementById('duration').value = objSup.duration;
+            opener.document.getElementById('amount').value = objSup.amount;
+            
+            if (objSup.active == "1"){
+                opener.document.getElementById('active').checked = true;
+            }else{
+                opener.document.getElementById('active').checked = false;
+            }
 
         }
-
-      
+        
         self.close();
     
     }

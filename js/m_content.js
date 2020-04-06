@@ -170,9 +170,10 @@ function getFromValues()
         if (IDF === "Master") {
             
             opener.document.getElementById('REF').value = objSup.REF;
-            opener.document.getElementById('player_ref').value = objSup.player_ref;
-            opener.document.getElementById('mdate').value = objSup.mdate;
-            opener.document.getElementById('amount').value = objSup.amount;
+            opener.document.getElementById('active').value = objSup.active;
+            opener.document.getElementById('content_code').value = objSup.content_code;
+            opener.document.getElementById('content_name').value = objSup.content_name;
+
         }
 
       

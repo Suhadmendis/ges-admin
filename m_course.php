@@ -83,6 +83,9 @@
                     <div class="col-sm-2">
                       <input type="text" class="form-control" id="faculty_name" placeholder="Faculty Name">
                     </div>
+                     <div class="col-md-2">
+                          <a class="btn btn-default" onclick="window.open('search_m_registration.php?IDF=payment', 'mywin', 'width=800, height=700');" class="btn btn-info btn-sm">...</a>
+                       </div> 
                   </div><br><br>
                  
 
