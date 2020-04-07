@@ -231,7 +231,7 @@ desired effect
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="test1.php" class="btn btn-default btn-flat" onclick="logout();">Sign out</a>
+                  <a  class="btn btn-default btn-flat" onclick="logout();">Sign out</a>
                 </div>
               </li>
             </ul>

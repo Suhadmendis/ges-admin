@@ -51,8 +51,8 @@ if ($_GET["Command"] == "save_item") {
         $lenth = strlen($tmpinvno);
         $no1 = trim("CON/") . substr($tmpinvno, $lenth - 7);
 
-        $sql = "Insert into m_faculty(REF, faculty_code, faculty_name, active)values
-                        ('" . $no1 . "' ,'" . $_GET['faculty_code'] . "' ,'" . $_GET['faculty_name'] . "' ,'" . $_GET['active'] . "')";
+        $sql = "Insert into m_faculty(REF, faculty_code, faculty_name, active,user)values
+                        ('" . $no1 . "' ,'" . $_GET['faculty_code'] . "' ,'" . $_GET['faculty_name'] . "' ,'" . $_GET['active'] . "','" . $_SESSION['UserName'] . "')";
         $result = $conn->query($sql);
         
         
@@ -60,8 +60,8 @@ if ($_GET["Command"] == "save_item") {
         $sql = "update sys_info set faculty_ref = '$no2' where faculty_ref = '$no'";
         $result = $conn->query($sql);
 
-        $sql = "Insert into activity_log(REF, entry, operation, user, ip)values
-                        ('" . $no1 . "' ,'entry' ,'SAVE'  ,'user' ,'ip')";
+        $sql = "Insert into sys_log(REF, entry, operation, user, ip)values
+                        ('" . $no1 . "' ,'entry' ,'SAVE'  ,'" . $_SESSION['UserName'] . "' ,'ip')";
         $result = $conn->query($sql);
 
         $conn->commit();

@@ -52,8 +52,8 @@ if ($_GET["Command"] == "save_item") {
         $lenth = strlen($tmpinvno);
         $no1 = trim("PAY/") . substr($tmpinvno, $lenth - 7);
 
-        $sql = "Insert into m_payment(REF, player_ref, player_name, mdate, amount)values
-                        ('" . $no1 . "' ,'" . $_GET['player_ref'] . "' ,'" . $_GET['player_name'] . "' ,'" . $_GET['mdate'] . "' ,'" . $_GET['amount'] . "')";
+        $sql = "Insert into m_payment(REF, player_ref, player_name, mdate, amount,user)values
+                        ('" . $no1 . "' ,'" . $_GET['player_ref'] . "' ,'" . $_GET['player_name'] . "' ,'" . $_GET['mdate'] . "' ,'" . $_GET['amount'] . "','" . $_SESSION['UserName'] . "')";
         $result = $conn->query($sql);
         
         
@@ -61,8 +61,8 @@ if ($_GET["Command"] == "save_item") {
         $sql = "update sys_info set payment_ref = $no2 where payment_ref = $no";
         $result = $conn->query($sql);
 
-        $sql = "Insert into activity_log(REF, entry, operation, user, ip)values
-                        ('" . $no1 . "' ,'entry' ,'SAVE'  ,'user' ,'ip')";
+        $sql = "Insert into sys_log(REF, entry, operation, user, ip)values
+                        ('" . $no1 . "' ,'entry' ,'SAVE'  ,'" . $_SESSION['UserName'] . "' ,'ip')";
         $result = $conn->query($sql);
 
 

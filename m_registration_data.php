@@ -45,8 +45,8 @@ if ($_GET["Command"] == "save_item") {
         $lenth = strlen($tmpinvno);
         $no1 = trim("REG/") . substr($tmpinvno, $lenth - 7);
 
-        $sql = "Insert into m_registration(REF ,first_name ,last_name ,guardian_name ,guardian_tel ,address_1 ,address_2 ,tel_1 ,tel_2 ,sex ,dob ,email ,remark ,joineddate ,active,black_list)values
-                        ('" . $no1 . "' ,'" . $_GET['first_name'] . "' ,'" . $_GET['last_name'] . "' ,'" . $_GET['guardian_name'] . "' ,'" . $_GET['guardian_tel'] . "' ,'" . $_GET['address_1'] . "' ,'" . $_GET['address_2'] . "' ,'" . $_GET['tel_1'] . "' ,'" . $_GET['tel_2'] . "' ,'" . $_GET['sex'] . "' ,'" . $_GET['dob'] . "' ,'" . $_GET['email'] . "' ,'" . $_GET['remark'] . "' ,'" . $_GET['joineddate'] . "' ,'" . $_GET['active'] . "','" . $_GET['black_list'] . "')";
+        $sql = "Insert into m_registration(REF ,first_name ,last_name ,guardian_name ,guardian_tel ,address_1 ,address_2 ,tel_1 ,tel_2 ,sex ,dob ,email ,remark ,joineddate ,active,black_list,user)values
+                        ('" . $no1 . "' ,'" . $_GET['first_name'] . "' ,'" . $_GET['last_name'] . "' ,'" . $_GET['guardian_name'] . "' ,'" . $_GET['guardian_tel'] . "' ,'" . $_GET['address_1'] . "' ,'" . $_GET['address_2'] . "' ,'" . $_GET['tel_1'] . "' ,'" . $_GET['tel_2'] . "' ,'" . $_GET['sex'] . "' ,'" . $_GET['dob'] . "' ,'" . $_GET['email'] . "' ,'" . $_GET['remark'] . "' ,'" . $_GET['joineddate'] . "' ,'" . $_GET['active'] . "','" . $_GET['black_list'] . "','" . $_SESSION['UserName'] . "')";
         $result = $conn->query($sql);
         
         
@@ -54,8 +54,8 @@ if ($_GET["Command"] == "save_item") {
         $sql = "update sys_info set registration_ref = $no2 where registration_ref = $no";
         $result = $conn->query($sql);
 
-        $sql = "Insert into activity_log(REF, entry, operation, user, ip)values
-                        ('" . $no1 . "' ,'entry' ,'SAVE'  ,'user' ,'ip')";
+        $sql = "Insert into sys_log(REF, entry, operation, user, ip)values
+                        ('" . $no1 . "' ,'entry' ,'SAVE'  ,'" . $_SESSION['UserName'] . "' ,'ip')";
         $result = $conn->query($sql);
 
         $conn->commit();

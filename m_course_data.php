@@ -55,7 +55,7 @@ if ($_GET["Command"] == "save_item") {
       
 
         $sql = "Insert into m_course(REF, course_code, course_name, faculty_ref, faculty_name, des, level, type, requirement_1, requirement_2, requirement_3, requirement_4, requirement_5, duration, amount, active, user)values
-         ('" . $no1 . "', '" . $_GET['course_code'] . "', '" . $_GET['course_name'] . "', '" . $_GET['faculty_ref'] . "', '" . $_GET['faculty_name'] . "', '" . $_GET['des'] . "', '" . $_GET['level'] . "', '" . $_GET['type'] . "', '" . $_GET['requirement_1'] . "', '" . $_GET['requirement_2'] . "', '" . $_GET['requirement_3'] . "', '" . $_GET['requirement_4'] . "', '" . $_GET['requirement_5'] . "', '" . $_GET['duration'] . "', '" . $_GET['amount'] . "', '" . $_GET['active'] . "', 'user')";
+         ('" . $no1 . "', '" . $_GET['course_code'] . "', '" . $_GET['course_name'] . "', '" . $_GET['faculty_ref'] . "', '" . $_GET['faculty_name'] . "', '" . $_GET['des'] . "', '" . $_GET['level'] . "', '" . $_GET['type'] . "', '" . $_GET['requirement_1'] . "', '" . $_GET['requirement_2'] . "', '" . $_GET['requirement_3'] . "', '" . $_GET['requirement_4'] . "', '" . $_GET['requirement_5'] . "', '" . $_GET['duration'] . "', '" . $_GET['amount'] . "', '" . $_GET['active'] . "','" . $_SESSION['UserName'] . "')";
 
         $result = $conn->query($sql);
         
@@ -64,8 +64,8 @@ if ($_GET["Command"] == "save_item") {
         $sql = "update sys_info set course_ref = '$no2' where course_ref = '$no'";
         $result = $conn->query($sql);
 
-        $sql = "Insert into activity_log(REF, entry, operation, user, ip)values
-                        ('" . $no1 . "' ,'entry' ,'SAVE'  ,'user' ,'ip')";
+        $sql = "Insert into sys_log(REF, entry, operation, user, ip)values
+                        ('" . $no1 . "' ,'entry' ,'SAVE'  ,'" . $_SESSION['UserName'] . "' ,'ip')";
         $result = $conn->query($sql);
 
         $conn->commit();

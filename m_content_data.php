@@ -50,8 +50,8 @@ if ($_GET["Command"] == "save_item") {
         $lenth = strlen($tmpinvno);
         $no1 = trim("CON/") . substr($tmpinvno, $lenth - 7);
 
-        $sql = "Insert into m_content(REF, content_code, content_name)values
-                        ('" . $no1 . "' ,'" . $_GET['content_code'] . "' ,'" . $_GET['content_name'] . "')";
+        $sql = "Insert into m_content(REF, content_code, content_name,user)values
+                        ('" . $no1 . "' ,'" . $_GET['content_code'] . "' ,'" . $_GET['content_name'] . "','" . $_SESSION['UserName'] . "')";
         $result = $conn->query($sql);
         
         
@@ -60,8 +60,8 @@ if ($_GET["Command"] == "save_item") {
         $result = $conn->query($sql);
 
 
-        $sql = "Insert into activity_log(REF, entry, operation, user, ip)values
-                        ('" . $no1 . "' ,'entry' ,'SAVE'  ,'user' ,'ip')";
+        $sql = "Insert into sys_log(REF, entry, operation, user, ip)values
+                        ('" . $no1 . "' ,'entry' ,'SAVE'  ,'" . $_SESSION['UserName'] . "' ,'ip')";
         $result = $conn->query($sql);
 
         $conn->commit();

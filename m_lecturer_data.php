@@ -54,8 +54,8 @@ if ($_GET["Command"] == "save_item") {
  
         
 
-        $sql = "Insert into m_lecturer(REF, lecturer_name, des, address_1, address_2, tel_1, tel_2, email, active)values
-                        ('" . $no1 . "' ,'" . $_GET['lecturer_name'] . "' ,'" . $_GET['des'] . "' ,'" . $_GET['address_1'] . "' ,'" . $_GET['address_2'] . "' ,'" . $_GET['tel_1'] . "' ,'" . $_GET['tel_2'] . "' ,'" . $_GET['email'] . "' ,'" . $_GET['active'] . "')";
+        $sql = "Insert into m_lecturer(REF, lecturer_name, des, address_1, address_2, tel_1, tel_2, email, active,user)values
+                        ('" . $no1 . "' ,'" . $_GET['lecturer_name'] . "' ,'" . $_GET['des'] . "' ,'" . $_GET['address_1'] . "' ,'" . $_GET['address_2'] . "' ,'" . $_GET['tel_1'] . "' ,'" . $_GET['tel_2'] . "' ,'" . $_GET['email'] . "' ,'" . $_GET['active'] . "','" . $_SESSION['UserName'] . "')";
         $result = $conn->query($sql);
         
         
@@ -63,8 +63,8 @@ if ($_GET["Command"] == "save_item") {
         $sql = "update sys_info set lecturer_ref = '$no2' where lecturer_ref = '$no'";
         $result = $conn->query($sql);
 
-        $sql = "Insert into activity_log(REF, entry, operation, user, ip)values
-                        ('" . $no1 . "' ,'entry' ,'SAVE'  ,'user' ,'ip')";
+        $sql = "Insert into sys_log(REF, entry, operation, user, ip)values
+                        ('" . $no1 . "' ,'entry' ,'SAVE'  ,'" . $_SESSION['UserName'] . "' ,'ip')";
         $result = $conn->query($sql);
         
 

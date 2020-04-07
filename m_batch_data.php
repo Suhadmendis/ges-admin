@@ -45,19 +45,15 @@ if ($_GET["Command"] == "save_item") {
         $lenth = strlen($tmpinvno);
         $no1 = trim("BAT/") . substr($tmpinvno, $lenth - 7);
 
-
-
-
         $sql = "Insert into m_batch(REF, batch_code, batch_name, course_ref, course_code, course_name, des, start_date, day, s_time, e_time, amount, active, user)values
                         ('" . $no1 . "' ,'" . $_GET['batch_code'] . "' ,'" . $_GET['batch_name'] . "' ,'" . $_GET['course_ref'] . "' ,'" . $_GET['course_code'] . "' ,'" . $_GET['course_name'] . "' ,'" . $_GET['des'] . "' ,'" . $_GET['start_date'] . "' ,'" . $_GET['day'] . "' ,'" . $_GET['s_time'] . "' ,'" . $_GET['e_time'] . "' ,'" . $_GET['amount'] . "' ,'" . $_GET['active'] . "' ,'user')";
         $result = $conn->query($sql);
-        
         
         $no2 = $no + 1;
         $sql = "update sys_info set batch_ref = '$no2' where batch_ref = '$no'";
         $result = $conn->query($sql);
 
-        $sql = "Insert into activity_log(REF, entry, operation, user, ip)values
+        $sql = "Insert into sys_log(REF, entry, operation, user, ip)values
                         ('" . $no1 . "' ,'entry' ,'SAVE'  ,'user' ,'ip')";
         $result = $conn->query($sql);
 
