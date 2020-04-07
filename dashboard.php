@@ -8,16 +8,24 @@
 
             include ("DB_connector.php");
 
-            $sql = "SELECT * FROM sys_entry";
+            $sql = "SELECT * FROM sys_entry order by sub";
             $result = $conn->query($sql);
             $row = $result->fetchAll();
+            
+            
+            $sub = "";
+            
+            for ($i=0; $i < sizeof($row); $i++) {  ?>
 
-        ?>
+              <?php if($row[$i]['sub'] != $sub){ ?>
+               <div class="col-lg-12">
+                <h1><?php 
+                  echo $row[$i]['sub']; 
+                  $sub = $row[$i]['sub'];
+                ?></h1>
+                </div>
+              <?php } ?>
 
-
-
-
-            <?php for ($i=0; $i < sizeof($row); $i++) {  ?>
               <div class="col-lg-4 col-xs-6">
                 <!-- small box -->
                 <div class="small-box bg-aqua">

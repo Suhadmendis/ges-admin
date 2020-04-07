@@ -35,9 +35,11 @@ if ($_GET["Command"] == "generate") {
 
 
 
+
 if ($_GET["Command"] == "save_item") {
  
 
+    
     try {
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $conn->beginTransaction();
@@ -63,7 +65,7 @@ if ($_GET["Command"] == "save_item") {
                         ('" . $no1 . "' ,'entry' ,'SAVE'  ,'user' ,'ip')";
         $result = $conn->query($sql);
 
-        
+
 
         $conn->commit();
         echo "Saved";
