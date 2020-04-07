@@ -59,6 +59,11 @@ if ($_GET["Command"] == "save_item") {
         $sql = "update sys_info set content_ref = '$no2' where content_ref = '$no'";
         $result = $conn->query($sql);
 
+
+        $sql = "Insert into activity_log(REF, entry, operation, user, ip)values
+                        ('" . $no1 . "' ,'entry' ,'SAVE'  ,'user' ,'ip')";
+        $result = $conn->query($sql);
+
         $conn->commit();
         echo "Saved";
     } catch (Exception $e) {
