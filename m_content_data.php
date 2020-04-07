@@ -50,8 +50,8 @@ if ($_GET["Command"] == "save_item") {
         $lenth = strlen($tmpinvno);
         $no1 = trim("CON/") . substr($tmpinvno, $lenth - 7);
 
-        $sql = "Insert into m_content(REF, player_ref, mdate, amount)values
-                        ('" . $no1 . "' ,'" . $_GET['player_ref'] . "' ,'" . $_GET['mdate'] . "' ,'" . $_GET['amount'] . "')";
+        $sql = "Insert into m_content(REF, content_code, content_name)values
+                        ('" . $no1 . "' ,'" . $_GET['content_code'] . "' ,'" . $_GET['content_name'] . "')";
         $result = $conn->query($sql);
         
         
