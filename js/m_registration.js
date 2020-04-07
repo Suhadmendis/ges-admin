@@ -247,8 +247,8 @@ function getFromValues()
         }
 
         if (IDF === "payment") {
-            opener.document.getElementById('player_ref').value = objSup.REF;
-            opener.document.getElementById('player_name').value = objSup.first_name;
+            opener.document.getElementById('student_ref').value = objSup.REF;
+            opener.document.getElementById('student_name').value = objSup.first_name;
         }
 
       

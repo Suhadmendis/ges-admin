@@ -52,8 +52,8 @@ if ($_GET["Command"] == "save_item") {
         $lenth = strlen($tmpinvno);
         $no1 = trim("PAY/") . substr($tmpinvno, $lenth - 7);
 
-        $sql = "Insert into m_payment(REF, player_ref, player_name, mdate, amount,user)values
-                        ('" . $no1 . "' ,'" . $_GET['player_ref'] . "' ,'" . $_GET['player_name'] . "' ,'" . $_GET['mdate'] . "' ,'" . $_GET['amount'] . "','" . $_SESSION['UserName'] . "')";
+        $sql = "Insert into m_payment(REF, student_ref, student_name, mdate, amount,user)values
+                        ('" . $no1 . "' ,'" . $_GET['student_ref'] . "' ,'" . $_GET['student_name'] . "' ,'" . $_GET['mdate'] . "' ,'" . $_GET['amount'] . "','" . $_SESSION['UserName'] . "')";
         $result = $conn->query($sql);
         
         

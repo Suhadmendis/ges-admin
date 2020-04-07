@@ -101,8 +101,8 @@ function save_info()
     var url = "m_payment_data.php";
     url = url + "?Command=" + "save_item";
     url = url + "&REF=" + document.getElementById("REF").value;
-    url = url + "&player_ref=" + document.getElementById("player_ref").value;
-    url = url + "&player_name=" + document.getElementById("player_name").value;
+    url = url + "&student_ref=" + document.getElementById("student_ref").value;
+    url = url + "&student_name=" + document.getElementById("student_name").value;
     url = url + "&mdate=" + document.getElementById("mdate").value;
     url = url + "&amount=" + document.getElementById("amount").value;
     
@@ -166,10 +166,10 @@ function getFromValues()
         if (IDF === "Master") {
             
             opener.document.getElementById('REF').value = objSup.REF;
-            opener.document.getElementById('player_ref').value = objSup.player_ref;
+            opener.document.getElementById('student_ref').value = objSup.student_ref;
+            opener.document.getElementById('student_name').value = objSup.student_name;
             opener.document.getElementById('mdate').value = objSup.mdate;
             opener.document.getElementById('amount').value = objSup.amount;
-            opener.document.getElementById('player_name').value = objSup.player_name;
         }
 
       
