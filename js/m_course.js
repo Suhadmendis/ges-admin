@@ -104,8 +104,6 @@ function save_info()
     url = url + "&course_name=" + document.getElementById("course_name").value;
     url = url + "&faculty_ref=" + document.getElementById("faculty_ref").value;
     url = url + "&faculty_name=" + document.getElementById("faculty_name").value;
-    url = url + "&batch_ref=" + document.getElementById("batch_ref").value;
-    url = url + "&batch_code=" + document.getElementById("batch_code").value;
     url = url + "&des=" + document.getElementById("des").value;
     url = url + "&level=" + document.getElementById("level").value;
     url = url + "&type=" + document.getElementById("type").value;
@@ -187,8 +185,6 @@ function getFromValues()
             opener.document.getElementById('course_name').value = objSup.course_name;
             opener.document.getElementById('faculty_ref').value = objSup.faculty_ref;
             opener.document.getElementById('faculty_name').value = objSup.faculty_name;
-            opener.document.getElementById('batch_ref').value = objSup.batch_ref;
-            opener.document.getElementById('batch_code').value = objSup.batch_code;
             opener.document.getElementById('des').value = objSup.des;
             opener.document.getElementById('level').value = objSup.level;
             opener.document.getElementById('type').value = objSup.type;

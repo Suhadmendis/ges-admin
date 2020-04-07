@@ -125,10 +125,12 @@ function salessaveresult() {
     if (xmlHttp.readyState == 4 || xmlHttp.readyState == "complete") {
 
         if (xmlHttp.responseText == "Saved") {
+            alert(xmlHttp.responseText);
             // document.getElementById('msg_box').innerHTML = "<div class='alert alert-success' role='alert'><span class='center-block'>Saved</span></div>";
             // $("#msg_box").hide().slideDown(400).delay(2000);
             // $("#msg_box").slideUp(400);
         } else {
+            alert(xmlHttp.responseText);
             // document.getElementById('msg_box').innerHTML = "<div class='alert alert-warning' role='alert'><span class='center-block'>" + xmlHttp.responseText + "</span></div>";
         }
     }

@@ -89,24 +89,7 @@
                   </div><br><br>
                  
 
-                  
-
-
-                  <div class="form-group"></div>
-                  <div class="form-group">
-                    <div class="col-sm-2">
-                      <label for="amount" >Batch Ref</label>
-                    </div>
-                    <div class="col-sm-2">
-                      <input type="text" class="form-control" id="batch_ref" placeholder="Batch Ref">
-                    </div>
-                    <div class="col-sm-2">
-                      <input type="text" class="form-control" id="batch_code" placeholder="Batch Code">
-                    </div>
-                  </div><br><br>
-                  
-
-
+            
 
 
                   <div class="form-group"></div>
