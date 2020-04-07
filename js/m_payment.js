@@ -101,6 +101,9 @@ function save_info()
     var url = "m_payment_data.php";
     url = url + "?Command=" + "save_item";
     url = url + "&REF=" + document.getElementById("REF").value;
+    url = url + "&batch_ref=" + document.getElementById("batch_ref").value;
+    url = url + "&batch_code=" + document.getElementById("batch_code").value;
+    url = url + "&batch_name=" + document.getElementById("batch_name").value;
     url = url + "&student_ref=" + document.getElementById("student_ref").value;
     url = url + "&student_name=" + document.getElementById("student_name").value;
     url = url + "&mdate=" + document.getElementById("mdate").value;
@@ -168,6 +171,9 @@ function getFromValues()
             opener.document.getElementById('REF').value = objSup.REF;
             opener.document.getElementById('student_ref').value = objSup.student_ref;
             opener.document.getElementById('student_name').value = objSup.student_name;
+            opener.document.getElementById('batch_ref').value = objSup.batch_ref;
+            opener.document.getElementById('batch_code').value = objSup.batch_code;
+            opener.document.getElementById('batch_name').value = objSup.batch_name;
             opener.document.getElementById('mdate').value = objSup.mdate;
             opener.document.getElementById('amount').value = objSup.amount;
         }

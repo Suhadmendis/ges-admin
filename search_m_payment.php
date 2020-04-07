@@ -63,7 +63,7 @@ include_once './DB_connector.php';
 
                     <tr>
                         <th>Reference</th>
-                        <th>Player</th>
+                        <th>Student</th>
                         <th>Date</th>
                         <th>Amount</th>
                     </tr>
@@ -82,7 +82,7 @@ include_once './DB_connector.php';
                       
                     echo "<tr>                
                               <td onclick=\"getForm('$REF','$IDF');\">" . $REF . "</a></td>
-                              <td onclick=\"getForm('$REF','$IDF');\">" . $row['player_name'] . "</a></td>
+                              <td onclick=\"getForm('$REF','$IDF');\">" . $row['student_name'] . "</a></td>
                               <td onclick=\"getForm('$REF','$IDF');\">" . $row['mdate'] . "</a></td>
                               <td onclick=\"getForm('$REF','$IDF');\">" . $row['amount'] . "</a></td>
                              </tr>";

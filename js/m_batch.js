@@ -209,6 +209,7 @@ function getFromValues()
             opener.document.getElementById('batch_name').value = objSup.batch_name;
             
            
+            
         }
 
       
