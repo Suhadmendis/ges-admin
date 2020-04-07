@@ -179,7 +179,7 @@ function getFromValues()
         var objSup = JSON.parse(XMLAddress1[0].childNodes[0].nodeValue);
 
         if (IDF === "Master") {
-            
+
             opener.document.getElementById('REF').value = objSup.REF;
             opener.document.getElementById('course_code').value = objSup.course_code;
             opener.document.getElementById('course_name').value = objSup.course_name;
@@ -195,13 +195,21 @@ function getFromValues()
             opener.document.getElementById('requirement_5').value = objSup.requirement_5;
             opener.document.getElementById('duration').value = objSup.duration;
             opener.document.getElementById('amount').value = objSup.amount;
-            
-            if (objSup.active == "1"){
+
+            if (objSup.active == "1") {
                 opener.document.getElementById('active').checked = true;
-            }else{
+            } else {
                 opener.document.getElementById('active').checked = false;
             }
 
+        }
+
+        if (IDF === "batch") {
+
+            opener.document.getElementById('course_ref').value = objSup.REF;
+            opener.document.getElementById('course_code').value = objSup.course_code;
+            opener.document.getElementById('course_name').value = objSup.course_name;
+           
         }
         
         self.close();
