@@ -178,7 +178,7 @@ function getFromValues()
         var objSup = JSON.parse(XMLAddress1[0].childNodes[0].nodeValue);
 
         if (IDF === "Master") {
-            
+
             opener.document.getElementById('REF').value = objSup.REF;
             opener.document.getElementById('batch_code').value = objSup.batch_code;
             opener.document.getElementById('batch_name').value = objSup.batch_name;
@@ -194,12 +194,21 @@ function getFromValues()
 
             opener.document.getElementById('active').value = objSup.active;
 
-            if (objSup.active == "1"){
+            if (objSup.active == "1") {
                 opener.document.getElementById('active').checked = true;
-            }else{
+            } else {
                 opener.document.getElementById('active').checked = false;
             }
 
+        }
+
+        if (IDF === "payment") {
+
+            opener.document.getElementById('batch_ref').value = objSup.REF;
+            opener.document.getElementById('batch_code').value = objSup.batch_code;
+            opener.document.getElementById('batch_name').value = objSup.batch_name;
+            
+           
         }
 
       

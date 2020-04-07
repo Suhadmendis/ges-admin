@@ -43,6 +43,25 @@
                 <div class="form-group"></div>
                 <div class="form-group">
                   <div class="col-sm-2">
+                    <label for="first_name" >Batch</label>
+                    </div>
+                    <div class="col-sm-2">
+                      <input type="text" class="form-control" id="batch_ref" placeholder="Batch">
+                    </div>
+                    <div class="col-md-2">
+                     <input type="text" class="form-control" id="batch_code" placeholder="Batch Code">
+                    </div>
+                    <div class="col-md-2">
+                     <input type="text" class="form-control" id="batch_name" placeholder="Batch Name">
+                    </div>
+                  <div class="col-md-2">
+                    <a class="btn btn-default" onclick="window.open('search_m_batch.php?IDF=payment', 'mywin', 'width=800, height=700');" class="btn btn-info btn-sm">...</a>
+                  </div> 
+                  </div><br><br>
+
+                  <div class="form-group"></div>
+                <div class="form-group">
+                  <div class="col-sm-2">
                     <label for="first_name" >Student</label>
                     </div>
                     <div class="col-sm-2">
@@ -55,6 +74,8 @@
                     <a class="btn btn-default" onclick="window.open('search_m_registration.php?IDF=payment', 'mywin', 'width=800, height=700');" class="btn btn-info btn-sm">...</a>
                   </div> 
                   </div><br><br>
+
+
  
 
                   <div class="form-group"></div>
