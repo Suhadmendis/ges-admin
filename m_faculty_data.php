@@ -49,7 +49,15 @@ if ($_GET["Command"] == "save_item") {
         $no = $row["faculty_ref"];
         $tmpinvno = "000000" . $row["faculty_ref"];
         $lenth = strlen($tmpinvno);
-        $no1 = trim("CON/") . substr($tmpinvno, $lenth - 7);
+        $no1 = trim("FAC/") . substr($tmpinvno, $lenth - 7);
+
+
+        $sql1 = "select * from m_faculty where REF = '" . $_GET['REF'] . "'";
+        $result1 = $conn->query($sql1);
+        if ($row1 = $result1->fetch()) {
+            exit("Duplicated ....!!!");
+        }
+
 
         $sql = "Insert into m_faculty(REF, faculty_code, faculty_name, active,user)values
                         ('" . $no1 . "' ,'" . $_GET['faculty_code'] . "' ,'" . $_GET['faculty_name'] . "' ,'" . $_GET['active'] . "','" . $_SESSION['UserName'] . "')";
